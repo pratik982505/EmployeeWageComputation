@@ -7,7 +7,9 @@ console.log("Welcome to Employee Wage Computation Program");
     let totalWorkingDays =0;
     let totalWorkingHours =0;
     let totalWage=0;
+    let daily_Wage = 0;
     let Daily_Wagee = [];
+    let StoreMap = new Map();
 
 
     function attendence() {
@@ -16,19 +18,28 @@ console.log("Welcome to Employee Wage Computation Program");
     
         switch (employee_Attendence) {
             case 0:
+               let Full_Time_Wage = FULL_DAY_WAGE * FULL_DAY_WORKING_HOURS ;
+               totalWage += Full_Time_Wage;
                 
             console.log("Employee is Present \t Daily Wage = " + FULL_DAY_WAGE * FULL_DAY_WORKING_HOURS);
-                totalWorkingHours += PART_TIME_WORKING_HOURS;
+                totalWorkingHours += FULL_DAY_WORKING_HOURS;
                Daily_Wagee.push(FULL_DAY_WAGE*FULL_DAY_WORKING_HOURS);
-                break;
+               StoreMap.set("Day" +totalWorkingDays, {Full_Time_Wage , });
+               break;
             case 1:
-                console.log("Employee is Present Part Time \t Daily Wage = " + FULL_DAY_WAGE * PART_TIME_WORKING_HOURS);
+                let Part_Time_Wagee = FULL_DAY_WAGE * PART_TIME_WORKING_HOURS ;
+               totalWage +=  Part_Time_Wagee;
+            console.log("Employee is Present Part Time \t Daily Wage = " + FULL_DAY_WAGE * PART_TIME_WORKING_HOURS);
                 totalWorkingHours += FULL_DAY_WORKING_HOURS;
               Daily_Wagee.push(FULL_DAY_WAGE*PART_TIME_WORKING_HOURS);
-                break;
+              StoreMap.set("Day" +totalWorkingDays, {Part_Time_Wagee , });
+              break;
             case 2:
+                let dailyy_Wage = FULL_DAY_WAGE * 0 ;
+                totalWage += dailyy_Wage;
                 console.log("Employee is Absent \t Daily Wage = 0");
                 Daily_Wagee.push(FULL_DAY_WAGE*0);
+                StoreMap.set("Day" +totalWorkingDays, {dailyy_Wage , });
                 break;
            }
        }
@@ -37,3 +48,4 @@ attendence();
 console.log("Total Working Days = " + totalWorkingDays );
 console.log("Total Working Hours = " +  totalWorkingHours);
 console.log(Daily_Wagee);
+console.log(StoreMap);
