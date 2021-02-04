@@ -2,10 +2,12 @@ console.log("Welcome to Employee Wage Computation Program");
     const FULL_DAY_WAGE = 20;
     const FULL_DAY_WORKING_HOURS = 8;
     const PART_TIME_WORKING_HOURS = 4;  
-    const  MAX_WORKING_HOURS = 100;
+    const  MAX_WORKING_HOURS = 160;
     const MAX_WORKING_DYAS =20;
     let totalWorkingDays =0;
     let totalWorkingHours =0;
+    let totalWage=0;
+    let Daily_Wagee = [];
 
 
     function attendence() {
@@ -14,15 +16,19 @@ console.log("Welcome to Employee Wage Computation Program");
     
         switch (employee_Attendence) {
             case 0:
-                console.log("Employee is Present \t Daily Wage = " + FULL_DAY_WAGE * FULL_DAY_WORKING_HOURS);
+                
+            console.log("Employee is Present \t Daily Wage = " + FULL_DAY_WAGE * FULL_DAY_WORKING_HOURS);
                 totalWorkingHours += PART_TIME_WORKING_HOURS;
+               Daily_Wagee.push(FULL_DAY_WAGE*FULL_DAY_WORKING_HOURS);
                 break;
             case 1:
                 console.log("Employee is Present Part Time \t Daily Wage = " + FULL_DAY_WAGE * PART_TIME_WORKING_HOURS);
                 totalWorkingHours += FULL_DAY_WORKING_HOURS;
+              Daily_Wagee.push(FULL_DAY_WAGE*PART_TIME_WORKING_HOURS);
                 break;
             case 2:
                 console.log("Employee is Absent \t Daily Wage = 0");
+                Daily_Wagee.push(FULL_DAY_WAGE*0);
                 break;
            }
        }
@@ -30,3 +36,4 @@ console.log("Welcome to Employee Wage Computation Program");
 attendence();
 console.log("Total Working Days = " + totalWorkingDays );
 console.log("Total Working Hours = " +  totalWorkingHours);
+console.log(Daily_Wagee);
