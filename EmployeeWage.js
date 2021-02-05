@@ -49,3 +49,21 @@ console.log("Total Working Days = " + totalWorkingDays );
 console.log("Total Working Hours = " +  totalWorkingHours);
 console.log(Daily_Wagee);
 console.log(StoreMap);
+//B) Day Along with DailyWage by using Array map.
+Daily_Wagee.map((element, index)=>  {
+    console.log("Day: ", index + 1);
+    console.log("Daily Wage : " , element);
+
+}  )
+
+// A) Total Wage Using Array For Each
+let empDay = [];
+let arrayTotalWage=0;
+empDay.forEach((Daily_Wagee) =>{
+  totalWage+= arrayTotalWage;
+})
+console.log(totalWage);
+///C) Day when full time Wage 160 by using Filter.
+let temp = Daily_Wagee.filter((element) => element ==160);
+console.log("Full Day Using filter: ", temp);
+
