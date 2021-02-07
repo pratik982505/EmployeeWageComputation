@@ -1,33 +1,33 @@
-class EmployeePay {
-    constructor(id,name,salary,gender, startDate){
-        this._id=id;
-        this._name=name;
-        this._salary=salary;
-        this.gender = gender;
-        this.startDate = startDate;
-    }
-    uu = {
-get id() { return this._id; },
-set id(Id){this._id = Id;},
-get name() { return this._name; },
-set name(Name){this._name = Name;},
-get salary() { return this._salary; },
-set salary(Salaray){this._salary = Salaray;},
-get gender() { return this._gender;},
-set gender(gender) { this._gender = gender;},
-get startDate() {return this.startDate;},
-set startDate(startDate) {this._startDate = this.startDate;}
-    }
-    toString() {
-        return `id: ${this._id}\nName : ${this._name}\nSalary: ${this._salary}\nGender: ${this.gender}\nStartDate: ${this.startDate}`;
+class EmployeePay { 
+get id() { return this._id; }
+set id(Id){this._id = Id;}
+get name() { return this._name; }
+set name(name){
+    try {
+        var pattern = new RegExp("^[A-Z]{1}[a-zA-Z]{2,}")
+        if (pattern.test(name)) {
+
+           this._name = name;
+        } else {
+            throw ("Name format is incorrect");
+        }
+    } catch (error) {
+        console.error(error);
     }
 }
-let Data=new EmployeePay(8,"prat",40000,"Male","27jan");
-console.log(Data.toString)
+set salary(Salaray){this._salary = Salaray;}
+get salary() { return this._salary; }
+get gender() { return this._gender;}
+set gender(gender) { this._gender = gender;}
+get startDate() {return this._startDate;}
+set startDate(startDate) {this._startDate = startDate;}
+    toString() {
+        return `id: ${this._id}\nName : ${this._name}\nSalary: ${this._salary}\nGender: ${this.gender}\nStartDate: ${this.startDate}`;   
+     }}
+let Data=new EmployeePay();
 Data._id = 21;
-Data._name = "Gharat"
 Data._salary = 45000
 Data.gender = "Female"
 Data.startDate = "26jan"
-console.log("\n\n")
-console.log(Data.toString());
+Data.name = "gharat"///console.log("\n\n")
+console.log(Data);
